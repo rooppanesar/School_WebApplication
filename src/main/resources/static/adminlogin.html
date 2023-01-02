@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>:: Preschool ::</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<!--<link href="F:\G\Layout\bootstrap-3.3.5\bootstrap-3.3.5\dist\css\bootstrap.min.css" type="text/css" rel="stylesheet" />-->
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/angular.js" type="text/javascript"></script>
+	<script src="js/custom-angular.js" type="text/javascript"></script>
+	<script>
+		$(document).ready(function(){
+			$('.responsive_nav a').click(function(){
+				$('nav ul').slideToggle('fast');
+			});
+		});
+	</script>
+</head>
+<body>
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="col-sm-4 col-xs-12 logo">
+					<a href="home"><img src="images/logo.png" /></a>
+				</div>
+				<div class="col-sm-8 col-xs-12">
+					<div class="responsive_nav">
+						<a href="javascript:;">Menu<span></span></a>
+					</div>
+					<nav>
+						<ul class="primary-nav text-center">
+							<li><a href="home.html" class="nav-active">Home</a></li>
+							<li><a href="aboutus.html">About Us</a>
+								<!-- <ul>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                </ul> -->
+							</li>
+							<li><a href="programs.html">Programs</a>
+								<ul class="programs-tab">
+									<li><a href="additional-programs.html">Additional Programs</a></li>
+								</ul>
+							</li>
+							<li><a href="staff.html">Staff</a></li>
+							<li><a href="events.html">News & Events</a></li>
+							<li><a href="gallery.html">Gallery</a></li>
+							<li><a href="contactus.html">Contact</a></li>
+							<li><a href="adminlogin.html">Admin Login</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+	<div class="contactus-content">
+		<div class="col-sm-12">
+			<div class="col-sm-12 col-lg-12 col-md-12 contactus-main" ng-app="schoolApp" ng-controller="myCtrl">
+				<!--<div class="col-sm-6">-->
+					<!--<iframe src="http://static.parastorage.com/services/santa/1.1333.10/static/external/googleMap.html?address=69%2C%20Old%20Nagardas%20Rd%2C%20Patel%20Wadi%2C%20Azad%20Nagar%2C%20Andheri%20East%2C%20Mumbai%2C%20Maharashtra%20400053%2C%20India&amp;addressInfo=Do-Re-Mi%20Kids&amp;language=en&amp;lat=19.1221263&amp;long=72.85068179999996&amp;mapInteractive=false&amp;mapType=ROADMAP&amp;showMapType=false&amp;showPosition=false&amp;showStreetView=false&amp;showZoom=false&amp;ts=895" frameborder="0" scrolling="no" data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$c24vq.1.$GglMp1.0.0"></iframe>-->
+				<!--</div>-->
+				<div class="col-sm-12 center-block" ng-hide="loginSuccessful">
+					<h1><strong>Login Form</strong></h1>
+					<div class="b2"></div>
+					<!--<h3>Do-Re-Mi Kids Preschool</h3>-->
+					<!--<p>-->
+						<!--<span>Wing - C 2/3,Devdarshan CHS Ltd,</span>-->
+						<!--<span>Old Nagardas road,Andheri-East,</span>-->
+						<!--<span>Mumbai-400 069</span>-->
+					<!--</p>-->
+					<!--<p>-->
+						<!--<span>Email: doremikids2016@gmail.com</span>-->
+						<!--<span>Tel. 7506182820  /  7506180301</span>-->
+					<!--</p>-->
+					<div>
+						<div class="col-sm-4 form">
+							User Name : <input class="form-control" type="text" placeholder="User Id" ng-model="login.username"/>
+							Password <input class="form-control" type="password" placeholder="Password" ng-model="login.password" />
+							<div class="text-center col-sm-12">
+								<button class="btn btn-primary" ng-click="checkLogin()">Login</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 center-block" ng-show="loginSuccessful">
+					<h1><strong>Enquiries</strong></h1>
+					<div class="b2"></div>
+					<!--<h3>Do-Re-Mi Kids Preschool</h3>-->
+					<!--<p>-->
+					<!--<span>Wing - C 2/3,Devdarshan CHS Ltd,</span>-->
+					<!--<span>Old Nagardas road,Andheri-East,</span>-->
+					<!--<span>Mumbai-400 069</span>-->
+					<!--</p>-->
+					<!--<p>-->
+					<!--<span>Email: doremikids2016@gmail.com</span>-->
+					<!--<span>Tel. 7506182820  /  7506180301</span>-->
+					<!--</p>-->
+
+
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+							<tr>
+								<th>NAME</th>
+								<th>Subject</th>
+								<th>Email</th>
+								<th>Message</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="enquiry in enquiries">
+								<td>{{enquiry.name}}</td>
+								<td>{{enquiry.subject}}</td>
+								<td>{{enquiry.email}}</td>
+								<td>{{enquiry.message}}</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+						<!--<div class="col-sm-12 ">-->
+							<!--<div class="col-sm-3 ">-->
+								<!--<div class="text-center col-sm-12">NAME</div>-->
+							<!--</div>-->
+							<!--<div class="col-sm-3 ">-->
+								<!--<div class="text-center col-sm-12">Subject</div>-->
+							<!--</div>-->
+							<!--<div class="col-sm-3 ">-->
+								<!--<div class="text-center col-sm-12">Email</div>-->
+							<!--</div>-->
+							<!--<div class="col-sm-3 ">-->
+								<!--<div class="text-center col-sm-12">Message</div>-->
+							<!--</div>-->
+						<!--</div>-->
+
+					<!--<div class="col-sm-12 ">-->
+						<!--<div ng-repeat="enquiry in enquiries">-->
+						<!--<div class="col-sm-3 ">-->
+							<!--{{enquiry.name}}-->
+						<!--</div>-->
+						<!--<div class="col-sm-3 ">-->
+							<!--{{enquiry.subject}}-->
+						<!--</div>-->
+						<!--<div class="col-sm-3 ">-->
+							<!--{{enquiry.email}}-->
+						<!--</div>-->
+						<!--<div class="col-sm-3 ">-->
+							<!--{{enquiry.message}}-->
+						<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="col-sm-12">
+			<footer>
+				<div class="col-sm-12">
+					<div class="col-sm-6">
+						<p>� 2018 by Rupinder Panesar</p>
+					</div>
+					<div class="col-sm-6">
+						<ul class="social">
+							<li><a href="https://www.facebook.com/panesar97" target="_blank"><img src="images/social-icon/facebook.png" /></a></li>
+							<li><a href="https://plus.google.com/u/0/115373958416886771746" target="_blank"><img src="images/social-icon/google-plus.png" /></a></li>
+							<li><a href="https://www.instagram.com/rooppanesar_/"><img src="images/social-icon/instagram.png" /></a></li>
+							<!--<li><a href="#"><img src="images/social-icon/linkdin.png" /></a></li>-->
+						</ul>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+</body>
+</html>
